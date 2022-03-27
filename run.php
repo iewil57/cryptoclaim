@@ -17,11 +17,11 @@ $n = "\n";$n2 = "\n\n";$t = "\t";$r="\r                              \r";
 system("termux-open-url  https://www.youtube.com/c/iewil");
 bn();
 cookie:
-//$user_agent=Save('User_Agent');
-//$cookie=Save('Cookie');
+$user_agent=Save('User_Agent');
+$cookie=Save('Cookie');
 
-$user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36";
-$cookie="_ga=GA1.1.42005818.1648297766; token=eFZhb20rcy9jQWFYcWlqd2VlQkU2dkFPWXBsSFUyY081WEZHVno5OHNTb2JCblFlQTRGM0w4UGtmREpWSGVWRw%3D%3D; bitPTC=933cb06b77976879d3ab8d9af53c9eb9; _nfm_bit=500; _ga_8D97ERFZSQ=GS1.1.1648300830.2.1.1648301126.0";
+//$user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36";
+//$cookie="_ga=GA1.1.42005818.1648297766; token=eFZhb20rcy9jQWFYcWlqd2VlQkU2dkFPWXBsSFUyY081WEZHVno5OHNTb2JCblFlQTRGM0w4UGtmREpWSGVWRw%3D%3D; bitPTC=933cb06b77976879d3ab8d9af53c9eb9; _nfm_bit=500; _ga_8D97ERFZSQ=GS1.1.1648300830.2.1.1648301126.0";
 
 bn();
 
@@ -127,12 +127,12 @@ for($i=1;$i<count($tot);$i++){
 	$ul = explode('"',explode('<img src="https://www.google.com/s2/favicons?domain=',$tot[$i])[1])[0];
 	$r = Run(host.'/surf/'.$id,$ua2);
 	$tmr = explode(';',explode('var count = ',$r)[1])[0];
-	//$uid = explode('"',explode('id="uid" value="',$r)[1])[0];
-	$c = explode("'",explode("var id = '",$r)[1])[0];
-	Run(host.'/surf?uid='.$id.'&c='.$c,$ua2);
-	if($tmr){tmr($tmr);}else{
+	if($tmr){}else{
 		Ket('Error',"ptc finished");echo n;
 		goto menu;}
+	$c = explode("'",explode("var id = '",$r)[1])[0];
+	Run(host.'/surf?uid='.$id.'&c='.$c,$ua2);
+	tmr($tmr);
 	Run($ul,$ua3);
 	$data = "&uid=".$id."&c=".$c;
 	$r2 = json_decode(Run('https://'.host.'/ajax/surf',$ua4,$data),1);
